@@ -1,0 +1,13 @@
+source 'https://rubygems.org'
+
+ruby '3.3.5'
+
+gem 'slack-ruby-client', '~> 2.0'
+gem 'dotenv', '~> 2.8'
+gem 'csv'
+gem 'optparse'
+gem 'yaml'
+gem 'colorize'
+gem 'progress_bar'
+gem 'minitest', '~> 5.0', group: :test
+gem 'rubocop', '~> 1.0', group: :development 

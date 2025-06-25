@@ -1,0 +1,23 @@
+# 環境変数ファイル
+.env
+
+# 出力ファイル
+output/
+*.csv
+
+# Ruby関連
+Gemfile.lock
+vendor/
+
+# IDE・エディタ
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS関連
+.DS_Store
+Thumbs.db
+
+# ログファイル
+*.log 

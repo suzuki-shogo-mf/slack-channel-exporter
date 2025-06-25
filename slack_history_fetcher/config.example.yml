@@ -1,0 +1,42 @@
+# Slack チャンネル履歴取得ツール設定ファイル
+
+# 基本設定
+default_start_date: 30_days_ago  # 30日前から (今日からの相対日数)
+default_end_date: today          # 今日まで
+include_threads: true            # スレッド返信を含める
+include_reactions: true          # リアクション情報を含める
+include_user_info: true          # ユーザー情報を取得
+
+# 出力設定
+output:
+  directory: './output'          # 出力ディレクトリ
+  filename_format: '{channel_name}_{start_date}_{end_date}_{timestamp}'
+  timezone: 'Asia/Tokyo'         # タイムゾーン
+
+# チャンネル設定（複数指定可能）
+channels:
+  - channel_id: 'C1234567890'
+    name: 'general'
+    description: 'ジェネラルチャンネル'
+    # チャンネル固有の設定（オプション）
+    include_threads: true
+    include_reactions: false
+    
+  - channel_id: 'C0987654321'  
+    name: 'development'
+    description: '開発チーム用チャンネル'
+    # 期間をチャンネル毎に指定も可能
+    start_date: '2024-01-01'
+    end_date: '2024-12-31'
+
+# パフォーマンス設定
+performance:
+  api_delay: 1                   # API呼び出し間隔（秒）
+  max_retries: 3                 # 最大リトライ回数
+  batch_size: 100                # 一度に取得するメッセージ数
+
+# ログ設定
+logging:
+  level: 'info'                  # debug, info, warn, error
+  file: './logs/slack_fetcher.log'
+  console: true 
